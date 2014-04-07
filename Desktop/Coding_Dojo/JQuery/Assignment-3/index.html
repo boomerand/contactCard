@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Assignment 5 - Click Puzzle</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+	<script>
+		$(document).ready(function(){
+			$('img').click(function(){
+			var temp = $(this).attr('src');
+			$(this).attr('src', $(this).attr('alt-src'));
+			$(this).attr('alt-src', temp);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+		<img src="images/adora_01.jpg" alt-src="images/she-ra_01.jpg">
+		<img src="images/adora_02.jpg" alt-src="images/she-ra_02.jpg">
+		<img src="images/adora_03.jpg" alt-src="images/she-ra_03.jpg">
+		<img src="images/adora_04.jpg" alt-src="images/she-ra_04.jpg">
+		<img src="images/adora_05.jpg" alt-src="images/she-ra_05.jpg">
+	</div>
+</body>
+</html>
