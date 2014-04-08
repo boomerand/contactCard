@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF=8">
+	<title>Contact Card</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('form').submit(function(){
+				return false;
+			});
+			$('#btn').click(function(){
+				var first = $('#firstname').val();
+				var last = $('#lastname').val();
+				var desc = $('#desc').val();
+				$('#profiles').append('<div class="profile"><h2>' + first + ' ' + last + '</h2><p class="switch">Click here for description</p><p class="hide" style="display:none;">' + desc + "</p>");
+			});
+			$(document).on('click', '.switch', function(){
+				$(this).siblings().toggle();
+				$(this).addClass('disappear');
+				$(this).parent().addClass('backside');
+			});
+			$(document).on('click', '.backside', function(){
+				$(this).children().toggle();
+				$(this).children().removeClass('.disappear');
+				$(this).removeClass('.backside');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+		<form action="process.php" method="post">
+			<label>First Name<input id="firstname" class="input" type="text" name="first name"></label>
+			<label>Last Name<input id="lastname" class="input" type="text" name="first name"></label>
+			<label>Description</label>
+			<textarea id="desc" class="input" rows="10" cols="53" name="description"></textarea>
+			<input id="btn" type="submit" value="Add a user!">		
+		</form>
+		<div id="profiles">
+
+		</div>
+	</div>
+</body>
+</html>
